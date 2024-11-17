@@ -1,12 +1,24 @@
+import bodyParser from "body-parser";
 import express, { Express } from "express";
 
-import serverConfig from "./config/serverConfig";
+import ConnectToDB from "./config/dbConfig";
+import { PORT } from "./config/serverConfig";
 import apiRouter from "./routes";
 
 const app: Express = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.text());
+
 app.use("/api", apiRouter);
 
-app.listen(serverConfig.PORT, () => {
-  console.log(`Server started at *:${serverConfig.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server started at *:${PORT}`);
+  try {
+    ConnectToDB();
+    console.log("Successfully connected to the db");
+  } catch (err) {
+    console.log("Error connecting to the db", err);
+  }
 });
