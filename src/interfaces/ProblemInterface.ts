@@ -1,8 +1,8 @@
 export interface IProblem {
   title: string;
   description: string;
-  difficulty?: string;
-  testCases?: ITestCase[];
+  difficulty: string;
+  testCases: ITestCase[];
   editorial?: string;
 }
 

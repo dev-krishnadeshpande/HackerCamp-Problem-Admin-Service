@@ -17,18 +17,20 @@ const problemSchema = new Schema<IProblem>({
     required: [true, "Difficulty cannot be empty"],
     default: "easy",
   },
-  testCases: [
-    {
-      input: {
-        type: String,
-        required: true,
+  testCases: {
+    type: [
+      {
+        input: {
+          type: String,
+          required: true,
+        },
+        output: {
+          type: String,
+          required: true,
+        },
       },
-      output: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+    ],
+  },
   editorial: {
     type: String,
   },
