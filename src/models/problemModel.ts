@@ -31,6 +31,26 @@ const problemSchema = new Schema<IProblem>({
       },
     ],
   },
+  codeStubs: {
+    type: [
+      {
+        language: {
+          type: String,
+          enum: ["JAVASCRIPT"],
+          required: true,
+        },
+        startSnippet: {
+          type: String,
+        },
+        endSnippet: {
+          type: String,
+        },
+        userSnippet: {
+          type: String,
+        },
+      },
+    ],
+  },
   editorial: {
     type: String,
   },

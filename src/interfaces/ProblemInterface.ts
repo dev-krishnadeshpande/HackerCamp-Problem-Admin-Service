@@ -3,10 +3,22 @@ export interface IProblem {
   description: string;
   difficulty: string;
   testCases: ITestCase[];
+  codeStubs?: ICodeStub[];
   editorial?: string;
 }
 
 interface ITestCase {
   input: string;
   output: string;
+}
+
+interface ICodeStub {
+  language: {
+    type: string;
+    enum: ["CPP", "JAVASCRIPT"];
+    required: boolean;
+  };
+  startSnippet: string;
+  endSnippet: string;
+  userSnippet: string;
 }
