@@ -6,8 +6,22 @@ import { Problem } from "../models/problemModel";
 export class ProblemRepository {
   async createProblem(problemData: IProblem) {
     try {
-      const { title, description, testCases } = problemData;
-      const problem = await Problem.create({ title, description, testCases });
+      const {
+        title,
+        description,
+        difficulty,
+        testCases,
+        codeStubs,
+        editorial,
+      } = problemData;
+      const problem = await Problem.create({
+        title,
+        description,
+        difficulty,
+        testCases,
+        codeStubs,
+        editorial,
+      });
 
       return problem;
     } catch (error) {
