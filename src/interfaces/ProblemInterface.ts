@@ -8,6 +8,7 @@ export interface IProblem {
 }
 
 interface ITestCase {
+  testCaseId: string;
   input: string;
   output: string;
 }

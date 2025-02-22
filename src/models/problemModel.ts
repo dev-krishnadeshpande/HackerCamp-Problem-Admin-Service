@@ -20,6 +20,10 @@ const problemSchema = new Schema<IProblem>({
   testCases: {
     type: [
       {
+        testCaseId: {
+          type: String,
+          required: true,
+        },
         input: {
           type: String,
           required: true,
