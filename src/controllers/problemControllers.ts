@@ -17,7 +17,7 @@ export const createProblem = async (req: Request, res: Response) => {
 
 export const getAll = async (_: Request, res: Response) => {
   const problems = await problemService.getAll();
-  return res.status(501).json({
+  return res.status(200).json({
     success: true,
     message: "Successfully fetched all problems",
     error: "",
@@ -27,7 +27,7 @@ export const getAll = async (_: Request, res: Response) => {
 
 export const getOne = async (req: Request, res: Response) => {
   const problem = await problemService.getOne(req?.params?.id);
-  return res.status(501).json({
+  return res.status(200).json({
     success: true,
     message: "Successfully fetched the problem with given id",
     error: "",
@@ -37,7 +37,7 @@ export const getOne = async (req: Request, res: Response) => {
 
 export const deleteAll = async (_: Request, res: Response) => {
   const response = await problemService.deleteAll();
-  return res.status(501).json({
+  return res.status(200).json({
     success: true,
     message: `Successfully deleted ${response.deletedCount} problems`,
     error: "",
@@ -47,7 +47,7 @@ export const deleteAll = async (_: Request, res: Response) => {
 
 export const deleteOne = async (req: Request, res: Response) => {
   const response = await problemService.deleteOne(req.params.id);
-  return res.status(501).json({
+  return res.status(200).json({
     success: true,
     message: "Successfully deleted the problem with given id",
     error: "",
@@ -60,7 +60,7 @@ export const update = async (req: Request, res: Response) => {
     req.params.id,
     req.body
   );
-  return res.status(501).json({
+  return res.status(200).json({
     success: true,
     message: "Successfully updated the problem with given id",
     error: "",
