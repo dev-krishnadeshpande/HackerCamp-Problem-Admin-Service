@@ -19,6 +19,6 @@ app.listen(PORT, () => {
     ConnectToDB();
     console.log("Successfully connected to the db");
   } catch (err) {
-    console.log("Error connecting to the db", err);
+    console.error("Error connecting to the db", err);
   }
 });
